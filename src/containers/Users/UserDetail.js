@@ -6,7 +6,6 @@ import NavigationBar from "../../components/NavigationBar/NavigationBar";
 
 const UserDetail = () => {
   const [userDetail, setUserDetail] = useState({});
-  //const [users, setUsers] = useState([]);
   let { id } = useParams();
 
   useEffect(() => {
@@ -24,15 +23,17 @@ const UserDetail = () => {
   return (
     <div>
       <NavigationBar />
-      <Card>
-        <CardBody>
-          <CardTitle>Name: {userDetail.name}</CardTitle>
-          <hr />
-          <CardSubtitle>Email: {userDetail.email}</CardSubtitle>
-          <CardSubtitle>Gender: {userDetail.gender}</CardSubtitle>
-          <CardSubtitle>Status: {userDetail.status}</CardSubtitle>
-        </CardBody>
-      </Card>
+      <div className="users-list">
+        <Card>
+          <CardBody>
+            <CardTitle>Name: {userDetail.name}</CardTitle>
+            <hr />
+            <CardSubtitle>Email: {userDetail.email}</CardSubtitle>
+            <CardSubtitle>Gender: {userDetail.gender}</CardSubtitle>
+            <CardSubtitle>Status: {userDetail.status}</CardSubtitle>
+          </CardBody>
+        </Card>
+      </div>
     </div>
   );
 };

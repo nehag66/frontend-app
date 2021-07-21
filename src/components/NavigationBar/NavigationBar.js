@@ -8,8 +8,6 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
   NavbarText,
 } from "reactstrap";
 
@@ -22,23 +20,13 @@ const NavigationBar = () => {
   return (
     <div>
       <Navbar color="danger" light expand="md" className="navibar">
-        <NavbarBrand href="/">reactstrap</NavbarBrand>
+        <NavbarBrand href="/">Frontend-App</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
               <NavLink href="/components/">Components</NavLink>
             </NavItem>
-            <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">
-                GitHub
-              </NavLink>
-            </NavItem>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Options
-              </DropdownToggle>
-            </UncontrolledDropdown>
           </Nav>
           <NavbarText>Simple Text</NavbarText>
         </Collapse>

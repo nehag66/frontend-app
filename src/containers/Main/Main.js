@@ -6,11 +6,12 @@ const Main = () => {
   return (
     <div>
       <NavigationBar />
-      <p>
+      <br />
+      <div>
         <Button color="danger" href="/users/">
           Users
         </Button>
-      </p>
+      </div>
     </div>
   );
 };
