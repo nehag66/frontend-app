@@ -21,7 +21,7 @@ const NavigationBar = () => {
   const toggle = () => setIsOpen(!isOpen);
   return (
     <div>
-      <Navbar color="secondary" light expand="md" className="navibar">
+      <Navbar color="danger" light expand="md" className="navibar">
         <NavbarBrand href="/">reactstrap</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>

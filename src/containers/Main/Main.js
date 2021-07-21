@@ -7,7 +7,9 @@ const Main = () => {
     <div>
       <NavigationBar />
       <p>
-        <Button href="/users/">Users</Button>
+        <Button color="danger" href="/users/">
+          Users
+        </Button>
       </p>
     </div>
   );

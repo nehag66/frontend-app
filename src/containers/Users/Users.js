@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useHistory, useRouteMatch } from "react-router-dom";
 
 import NavigationBar from "../../components/NavigationBar/NavigationBar";
 
@@ -7,6 +8,9 @@ import { Card, CardBody, CardTitle, Button, CardSubtitle } from "reactstrap";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
+
+  const history = useHistory();
+  let { path } = useRouteMatch();
 
   useEffect(() => {
     axios
@@ -27,13 +31,17 @@ const Users = () => {
         <ul>
           {users.map((user) => (
             <Card key={user.id}>
-              <CardBody>
+              <CardBody onClick={() => history.push(`${path}/${user.id}`)}>
+                {/* <CardBody> */}
                 <CardTitle>Name: {user.name}</CardTitle>
                 <CardSubtitle>Email: {user.email}</CardSubtitle>{" "}
-                <Button href="mailto:{user.email}" target="_blank">
+                <Button
+                  color="danger"
+                  href="mailto:{user.email}"
+                  target="_blank"
+                >
                   mail
                 </Button>
-                {/* onClick={() => history.push(`${path}/${announcement._id}`)} */}
               </CardBody>
             </Card>
           ))}
