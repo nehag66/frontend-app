@@ -12,15 +12,11 @@ const Users = () => {
   const history = useHistory();
 
   useEffect(() => {
-    axios
-      .get("https://gorest.co.in/public/v1/users")
-      .then((response) => {
-        console.log(response);
-        setUsers(response.data.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const fetchUsers = async () => {
+      const respUsers = await axios(`https://gorest.co.in/public/v1/users`);
+      setUsers(respUsers.data.data);
+    };
+    fetchUsers();
   }, []);
 
   return (

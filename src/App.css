@@ -10,3 +10,8 @@ body {
 .users-list {
   padding: 90px;
 }
+
+.posts-list {
+  padding: 90px;
+  text-align: left;
+}
