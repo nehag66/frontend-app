@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+
 import { Card, CardBody, CardSubtitle, CardTitle } from "reactstrap";
-import axios from "axios";
 import NavigationBar from "../../components/NavigationBar/NavigationBar";
+
+import axios from "axios";
 
 const UserDetail = () => {
   const [userDetail, setUserDetail] = useState({});
@@ -10,9 +12,9 @@ const UserDetail = () => {
 
   useEffect(() => {
     axios
-      .get("https://gorest.co.in/public/v1/users")
+      .get(`https://gorest.co.in/public/v1/users/${id}`)
       .then((response) => {
-        console.log(response);
+        console.log(response.data.data);
         setUserDetail(response.data.data);
       })
       .catch((err) => {

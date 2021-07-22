@@ -1,7 +1,9 @@
 import "./App.css";
+
 import Main from "./containers/Main/Main";
 import Users from "./containers/Users/Users";
 import UserDetail from "./containers/Users/UserDetail";
+
 import { Route, Switch } from "react-router-dom";
 
 function App() {
@@ -13,7 +15,7 @@ function App() {
       <Route path="/users">
         <Users />
       </Route>
-      <Route path="/user/:id">
+      <Route path="/user/:name/:id">
         <UserDetail />
       </Route>
     </Switch>

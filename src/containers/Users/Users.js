@@ -9,9 +9,7 @@ import { Card, CardBody, CardTitle, Button, CardSubtitle } from "reactstrap";
 
 const Users = () => {
   const [users, setUsers] = useState([]);
-
   const history = useHistory();
-  //   let { path } = useRouteMatch();
 
   useEffect(() => {
     axios
@@ -32,8 +30,9 @@ const Users = () => {
         <ul>
           {users.map((user) => (
             <Card key={user.id}>
-              {/* <CardBody onClick={() => history.push(`${path}/${user.id}`)}> */}
-              <CardBody onClick={() => history.push(`/user/${user.id}`)}>
+              <CardBody
+                onClick={() => history.push(`/user/${user.name}/${user.id}`)}
+              >
                 <CardTitle>Name: {user.name}</CardTitle>
                 <CardSubtitle>Email: {user.email}</CardSubtitle>{" "}
                 <Button
