@@ -9,7 +9,7 @@ body {
 }
 .users-list {
   padding: 90px;
-  text-align: justify;
+  /* text-align: justify; */
 }
 
 .posts-list {

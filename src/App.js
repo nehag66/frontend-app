@@ -3,6 +3,7 @@ import "./App.css";
 import Main from "./containers/Main/Main";
 import Users from "./containers/Users/Users";
 import UserDetail from "./containers/Users/UserDetail";
+import CreatePost from "./containers/CreatePost/CreatePost";
 
 import { Route, Switch } from "react-router-dom";
 
@@ -14,6 +15,9 @@ function App() {
       </Route>
       <Route path="/users">
         <Users />
+      </Route>
+      <Route path="/user/:id/createPost">
+        <CreatePost />
       </Route>
       <Route path="/user/:name/:id">
         <UserDetail />

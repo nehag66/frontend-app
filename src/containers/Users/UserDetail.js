@@ -14,16 +14,20 @@ const UserDetail = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const respUsers = await axios(
-        `https://gorest.co.in/public/v1/users/${id}`
-      );
-      const respPosts = await axios(
-        `https://gorest.co.in/public/v1/posts/${id}`
-      );
-      setUserDetail(respUsers.data.data);
-      //console.log(respUsers.data.data);
-      setPosts(respPosts.data.data);
-      //console.log(respPosts.data.data);
+      try {
+        const respUsers = await axios(
+          `https://gorest.co.in/public/v1/users/${id}`
+        );
+        const respPosts = await axios(
+          `https://gorest.co.in/public/v1/posts/${id}`
+        );
+        setUserDetail(respUsers.data.data);
+        console.log(respUsers.data.data);
+        setPosts(respPosts.data.data);
+        console.log(respPosts.data.data);
+      } catch (e) {
+        console.log(e);
+      }
     };
     fetchUsers();
   }, [id]);

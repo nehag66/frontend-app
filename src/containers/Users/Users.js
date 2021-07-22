@@ -13,8 +13,12 @@ const Users = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      const respUsers = await axios(`https://gorest.co.in/public/v1/users`);
-      setUsers(respUsers.data.data);
+      try {
+        const respUsers = await axios(`https://gorest.co.in/public/v1/users`);
+        setUsers(respUsers.data.data);
+      } catch (e) {
+        console.log(e);
+      }
     };
     fetchUsers();
   }, []);
@@ -34,6 +38,12 @@ const Users = () => {
                   onClick={() => history.push(`/user/${user.name}/${user.id}`)}
                 >
                   Get Details
+                </Button>
+                <Button
+                  color="success"
+                  onClick={() => history.push(`/user/${user.id}/createPost`)}
+                >
+                  Create Post
                 </Button>
                 &nbsp;&nbsp;
                 <Button
