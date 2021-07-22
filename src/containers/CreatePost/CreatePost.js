@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import { Form, FormGroup, Label, Input, Button, Card } from "reactstrap";
+
+import NavigationBar from "../../components/NavigationBar/NavigationBar";
+import "./CreatePost.css";
 
 import axios from "axios";
 
@@ -40,58 +43,65 @@ const CreatePost = () => {
   };
 
   return (
-    <div className="users-list">
-      <Form onSubmit={uploadFile} autoComplete="off">
-        <FormGroup>
-          <Label for="id">Id</Label>
-          <Input
-            type="text"
-            name="id"
-            id="id"
-            placeholder="id"
-            value={id}
-            onChange={(e) => setId(e.target.value)}
-            required
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="userId">User Id</Label>
-          <Input
-            type="text"
-            name="userId"
-            id="userId"
-            placeholder="user Id"
-            value={userId}
-            onChange={(e) => setUserId(e.target.value)}
-            required
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="title">Title</Label>
-          <Input
-            type="text"
-            name="title"
-            id="title"
-            placeholder="Title"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          />
-        </FormGroup>
-        <FormGroup>
-          <Label for="body">Body</Label>
-          <Input
-            type="text"
-            name="body"
-            id="body"
-            placeholder="Body"
-            value={body}
-            onChange={(e) => setBody(e.target.value)}
-            required
-          />
-        </FormGroup>
-        <Button type="submit">Post</Button>
-      </Form>
+    <div>
+      <NavigationBar />
+      <div>
+        <Card className="create-post-list">
+          <Form onSubmit={uploadFile} autoComplete="off">
+            <FormGroup>
+              <Label for="id">ID</Label>
+              <Input
+                type="text"
+                name="id"
+                id="id"
+                placeholder="Id"
+                value={id}
+                onChange={(e) => setId(e.target.value)}
+                required
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="userId">USER ID</Label>
+              <Input
+                type="text"
+                name="userId"
+                id="userId"
+                placeholder="User Id"
+                value={userId}
+                onChange={(e) => setUserId(e.target.value)}
+                required
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="title">TITLE</Label>
+              <Input
+                type="text"
+                name="title"
+                id="title"
+                placeholder="Title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+                required
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="body">BODY</Label>
+              <Input
+                type="text"
+                name="body"
+                id="body"
+                placeholder="Body"
+                value={body}
+                onChange={(e) => setBody(e.target.value)}
+                required
+              />
+            </FormGroup>
+            <Button type="submit" color="primary">
+              POST
+            </Button>
+          </Form>
+        </Card>
+      </div>
     </div>
   );
 };
