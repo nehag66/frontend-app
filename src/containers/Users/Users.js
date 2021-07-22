@@ -26,11 +26,16 @@ const Users = () => {
         <ul>
           {users.map((user) => (
             <Card key={user.id}>
-              <CardBody
-                onClick={() => history.push(`/user/${user.name}/${user.id}`)}
-              >
+              <CardBody>
                 <CardTitle>Name: {user.name}</CardTitle>
                 <CardSubtitle>Email: {user.email}</CardSubtitle>{" "}
+                <Button
+                  color="success"
+                  onClick={() => history.push(`/user/${user.name}/${user.id}`)}
+                >
+                  Get Details
+                </Button>
+                &nbsp;&nbsp;
                 <Button
                   color="danger"
                   href={`mailto:${user.email}`}
