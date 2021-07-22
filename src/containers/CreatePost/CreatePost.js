@@ -8,7 +8,6 @@ import "./CreatePost.css";
 import axios from "axios";
 
 const CreatePost = () => {
-  const [id, setId] = useState("");
   const [userId, setUserId] = useState("");
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
@@ -16,7 +15,6 @@ const CreatePost = () => {
   const uploadFile = (e) => {
     e.preventDefault();
     var data = JSON.stringify({
-      id: id,
       user_id: userId,
       title: title,
       body: body,
@@ -49,18 +47,6 @@ const CreatePost = () => {
       <div>
         <Card className="create-post-list">
           <Form onSubmit={uploadFile} autoComplete="off">
-            <FormGroup>
-              <Label for="id">ID</Label>
-              <Input
-                type="text"
-                name="id"
-                id="id"
-                placeholder="Id"
-                value={id}
-                onChange={(e) => setId(e.target.value)}
-                required
-              />
-            </FormGroup>
             <FormGroup>
               <Label for="userId">USER ID</Label>
               <Input
@@ -97,7 +83,7 @@ const CreatePost = () => {
                 required
               />
             </FormGroup>
-            <Button type="submit" color="primary">
+            <Button type="submit" color="danger">
               POST
             </Button>
           </Form>

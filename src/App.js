@@ -16,7 +16,7 @@ function App() {
       <Route path="/users">
         <Users />
       </Route>
-      <Route path="/user/:id/createPost">
+      <Route path="/user/createPost">
         <CreatePost />
       </Route>
       <Route path="/user/:name/:id">

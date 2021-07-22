@@ -63,7 +63,9 @@ const UserDetail = () => {
             <CardTitle>Gender: {userDetail.gender}</CardTitle>
             <CardTitle>Status: {userDetail.status}</CardTitle>
           </CardBody>
-          <Button onClick={onClickHandler}>SEE POST(if available)</Button>
+          <Button onClick={onClickHandler} color="danger">
+            SEE POST(if available)
+          </Button>
         </Card>
         <br />
         {btnPressed === true ? (
@@ -77,7 +79,9 @@ const UserDetail = () => {
               </CardBody>
             </Card>
           ) : (
-            <div>Not available</div>
+            <Card>
+              <CardBody>Not available</CardBody>
+            </Card>
           )
         ) : (
           <div></div>

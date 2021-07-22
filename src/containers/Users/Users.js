@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-// import { useHistory, useRouteMatch } from "react-router-dom";
+
 import { useHistory } from "react-router-dom";
 
 import NavigationBar from "../../components/NavigationBar/NavigationBar";
@@ -34,16 +34,10 @@ const Users = () => {
                 <CardTitle>Name: {user.name}</CardTitle>
                 <CardSubtitle>Email: {user.email}</CardSubtitle>{" "}
                 <Button
-                  color="success"
+                  color="danger"
                   onClick={() => history.push(`/user/${user.name}/${user.id}`)}
                 >
                   Get Details
-                </Button>
-                <Button
-                  color="success"
-                  onClick={() => history.push(`/user/${user.id}/createPost`)}
-                >
-                  Create Post
                 </Button>
                 &nbsp;&nbsp;
                 <Button
