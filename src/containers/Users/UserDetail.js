@@ -80,7 +80,7 @@ const UserDetail = () => {
             </Card>
           ) : (
             <Card>
-              <CardBody>Not available</CardBody>
+              <CardBody>Post Not Available</CardBody>
             </Card>
           )
         ) : (
