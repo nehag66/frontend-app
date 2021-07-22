@@ -36,6 +36,7 @@ const CreatePost = () => {
     axios(config)
       .then(function (response) {
         console.log(JSON.stringify(response.data));
+        alert("Posted");
       })
       .catch(function (error) {
         console.log(error);

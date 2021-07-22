@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import { Card, CardBody, CardTitle, Label } from "reactstrap";
+import { Card, CardBody, CardTitle, Label, Button } from "reactstrap";
 import NavigationBar from "../../components/NavigationBar/NavigationBar";
 
 import axios from "axios";
 
 const UserDetail = () => {
   const [userDetail, setUserDetail] = useState({});
+  const [isPost, setIsPost] = useState("false");
+  const [btnPressed, setBtnPressed] = useState("false");
   const [posts, setPosts] = useState({});
 
   let { id } = useParams();
@@ -18,19 +20,35 @@ const UserDetail = () => {
         const respUsers = await axios(
           `https://gorest.co.in/public/v1/users/${id}`
         );
-        const respPosts = await axios(
-          `https://gorest.co.in/public/v1/posts/${id}`
-        );
         setUserDetail(respUsers.data.data);
         console.log(respUsers.data.data);
-        setPosts(respPosts.data.data);
-        console.log(respPosts.data.data);
       } catch (e) {
         console.log(e);
       }
     };
     fetchUsers();
   }, [id]);
+
+  const onClickHandler = (e) => {
+    e.preventDefault();
+    const fetchPosts = async () => {
+      setBtnPressed(true);
+      try {
+        const respPosts = await axios(
+          `https://gorest.co.in/public/v1/posts/${id}`
+        );
+        if (respPosts.status === 200) {
+          setPosts(respPosts.data.data);
+          setIsPost(true);
+          //console.log(respPosts.data.data);
+        }
+      } catch (e) {
+        //console.log(e);
+      }
+      //console.log(Object.keys(posts).length);
+    };
+    fetchPosts();
+  };
 
   return (
     <div>
@@ -45,16 +63,25 @@ const UserDetail = () => {
             <CardTitle>Gender: {userDetail.gender}</CardTitle>
             <CardTitle>Status: {userDetail.status}</CardTitle>
           </CardBody>
+          <Button onClick={onClickHandler}>SEE POST(if available)</Button>
         </Card>
         <br />
-        <Card>
-          <CardBody>
-            <Label>POSTS</Label>
-            <hr />
-            <CardTitle>Post Title: {posts.title}</CardTitle>
-            <CardTitle>Post Body: {posts.body}</CardTitle>
-          </CardBody>
-        </Card>
+        {btnPressed === true ? (
+          isPost === true ? (
+            <Card>
+              <CardBody>
+                <Label>POSTS</Label>
+                <hr />
+                <CardTitle>Post Title: {posts.title}</CardTitle>
+                <CardTitle>Post Body: {posts.body}</CardTitle>
+              </CardBody>
+            </Card>
+          ) : (
+            <div>Not available</div>
+          )
+        ) : (
+          <div></div>
+        )}
       </div>
     </div>
   );
