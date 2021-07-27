@@ -1,3 +1,7 @@
 .navibar {
   padding: 10px 40px;
 }
+
+.navibar-icons:hover {
+  cursor: pointer;
+}

@@ -11,7 +11,8 @@ const Main = () => {
       <NavigationBar />
       <br />
       <div>
-        <Button color="danger" href="/users/">
+        {/* <Button color="danger" href="/users/"> */}
+        <Button color="danger" onClick={() => history.push(`/users/`)}>
           Users
         </Button>
         &nbsp;&nbsp;
