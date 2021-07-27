@@ -43,6 +43,14 @@ const NavigationBar = () => {
                 Users{" "}
               </NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink
+                onClick={() => history.push(`/user/createPost`)}
+                className="navibar-icons"
+              >
+                Create Post{" "}
+              </NavLink>
+            </NavItem>
           </Nav>
         </Collapse>
       </Navbar>
